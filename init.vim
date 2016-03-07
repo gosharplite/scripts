@@ -21,7 +21,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'fatih/molokai'
 
 NeoBundle 'fatih/vim-go'
-" NeoBundle 'garyburd/go-explorer'
+NeoBundle 'garyburd/go-explorer'
 
 NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
@@ -52,6 +52,8 @@ set mouse=r
 colorscheme molokai
 syntax enable
 set number
+
+nnoremap <esc> :noh<return><esc>
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -122,4 +124,3 @@ endif
 nmap <F8> :TagbarToggle<CR>
 
 map <C-n> :NERDTreeToggle<CR>
-
