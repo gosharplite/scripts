@@ -33,6 +33,11 @@ NeoBundle 'majutsushi/tagbar'
 
 NeoBundle 'mileszs/ack.vim'
 
+NeoBundle 'scrooloose/nerdcommenter'
+
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+
 " You can specify revision/branch/tag.
 " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -48,6 +53,10 @@ NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 set mouse=r
+
+let g:airline#extensions#tabline#enabled = 1
+" set laststatus=2
+let g:airline_powerline_fonts = 1
 
 colorscheme molokai
 syntax enable
