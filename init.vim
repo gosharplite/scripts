@@ -52,17 +52,18 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-set mouse=r
+" set mouse=r
 
 let g:airline#extensions#tabline#enabled = 1
 " set laststatus=2
 let g:airline_powerline_fonts = 1
 
 colorscheme molokai
-syntax enable
 set number
 
-nnoremap <esc> :noh<return><esc>
+syntax off
+set nohlsearch
+set t_Co=0
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
