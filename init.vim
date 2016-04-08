@@ -25,6 +25,7 @@ NeoBundle 'garyburd/go-explorer'
 
 NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 
@@ -59,7 +60,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 colorscheme molokai
-set number
+" set number
 
 syntax off
 set nohlsearch
@@ -95,18 +96,13 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)<Paste>
 
 " deoplete start --------------------
-" neocomplete like
-" https://github.com/Shougo/deoplete.nvim/blob/master/doc/deoplete.txt
 set completeopt+=noinsert
-
-" Set before than deoplete
-" deoplete#mappings#_set_completeopt() in
-" https://github.com/Shougo/deoplete.nvim/blob/master/autoload/deoplete/mappings.vim
-" https://github.com/Shougo/deoplete.nvim/blob/master/rplugin/python3/deoplete/deoplete.py
 set completeopt+=noselect
 
 let g:deoplete#enable_at_startup = 1
+
 let g:deoplete#sources#go#align_class = 1
+let g:deoplete#sources#go#gocode_binary = '/home/tony/go/gopath/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#package_dot = 1
 " deoplete end --------------------
