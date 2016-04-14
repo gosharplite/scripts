@@ -55,6 +55,9 @@ NeoBundleCheck
 
 " set mouse=r
 
+:map <F5> :setlocal spell! spelllang=en_us<CR>
+:inoremap <F5> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
+
 let g:airline#extensions#tabline#enabled = 1
 " set laststatus=2
 let g:airline_powerline_fonts = 1
