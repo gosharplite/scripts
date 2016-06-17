@@ -135,3 +135,5 @@ nmap <F8> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 nnoremap <F2> :set nonumber!<CR>
+
+:nnoremap <C-p> :bprevious<CR>
