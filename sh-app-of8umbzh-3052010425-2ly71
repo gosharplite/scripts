@@ -1,0 +1,77 @@
+$ ./kubectl describe po sh-app-of8umbzh-3052010425-2ly71
+Name:		sh-app-of8umbzh-3052010425-2ly71
+Namespace:	tyd
+Node:		10.128.112.28/10.128.112.28
+Start Time:	Thu, 21 Jul 2016 19:20:43 +0800
+Labels:		app_name=of8umbzh,app_owner=BaaS_1,pod-template-hash=3052010425
+Status:		Pending
+IP:		10.2.9.149
+Controllers:	ReplicaSet/sh-app-of8umbzh-3052010425
+Containers:
+  tpe-db-baas-mgo-local:
+    Container ID:	
+    Image:		docker-registry:5000/cloudcode/lua_app:v0.10.0
+    Image ID:		
+    Port:		8081/TCP
+    QoS Tier:
+      cpu:		BestEffort
+      memory:		BestEffort
+    State:		Waiting
+      Reason:		RunContainerError
+    Ready:		False
+    Restart Count:	0
+    Environment Variables:
+      PHASE:			alpha
+      DB_MGO_MAX_CONN:		3
+      LOG_KAFKA_ENABLED:	false
+  of8umbzh:
+    Container ID:	docker://7cf61ee8af690c113e5926c4aa42fdd0cd436feb39d1ae42a8a12347a893d414
+    Image:		docker-registry:5000/backend/nginx_produce_daemon:v0.1.4
+    Image ID:		docker://2715e72c4b94cc4990ffffaf02683e14a474d1510f048e68dd37b5afea15fee4
+    Ports:		8000/TCP, 8001/TCP, 8100/TCP, 19987/TCP
+    QoS Tier:
+      cpu:		BestEffort
+      memory:		BestEffort
+    State:		Waiting
+      Reason:		CrashLoopBackOff
+    Last State:		Terminated
+      Reason:		Error
+      Exit Code:	2
+      Started:		Fri, 22 Jul 2016 08:59:13 +0800
+      Finished:		Fri, 22 Jul 2016 08:59:13 +0800
+    Ready:		False
+    Restart Count:	164
+    Environment Variables:
+      cluster_env:	alpha
+      APPID:		of8umbzhpsgBiksEMJiFL6hlfWDclsVUlQDQocwA
+      APP_TYPE:		testing
+      PHASE:		alpha
+      DROI_MDB_API_URL:	http://127.0.0.1:8081
+Conditions:
+  Type		Status
+  Ready 	False 
+Volumes:
+  default-token-6n2cv:
+    Type:	Secret (a volume populated by a Secret)
+    SecretName:	default-token-6n2cv
+Events:
+  FirstSeen	LastSeen	Count	From			SubobjectPath	Type		Reason		Message
+  ---------	--------	-----	----			-------------	--------	------		-------
+  13h		11m		102	{kubelet 10.128.112.28}			Warning		FailedSync	(events with common reason combined)
+  13h		1m		426	{kubelet 10.128.112.28}			Warning		FailedSync	Error syncing pod, skipping: [failed to "StartContainer" for "of8umbzh" with CrashLoopBackOff: "Back-off 5m0s restarting failed container=of8umbzh pod=sh-app-of8umbzh-3052010425-2ly71_tyd(26f6e6dd-4f35-11e6-987f-901b0e60defe)"
+, failed to "StartContainer" for "tpe-db-baas-mgo-local" with RunContainerError: "runContainer: API error (500): No command specified\n"
+]
+  13h	58s	165	{kubelet 10.128.112.28}	spec.containers{of8umbzh}	Normal	Pulling		pulling image "docker-registry:5000/backend/nginx_produce_daemon:v0.1.4"
+  13h	58s	165	{kubelet 10.128.112.28}	spec.containers{of8umbzh}	Normal	Pulled		Successfully pulled image "docker-registry:5000/backend/nginx_produce_daemon:v0.1.4"
+  13h	57s	156	{kubelet 10.128.112.28}	spec.containers{of8umbzh}	Normal	Started		(events with common reason combined)
+  13h	57s	77	{kubelet 10.128.112.28}					Warning	FailedSync	Error syncing pod, skipping: failed to "StartContainer" for "tpe-db-baas-mgo-local" with RunContainerError: "runContainer: API error (500): No command specified\n"
+
+  13h	57s	156	{kubelet 10.128.112.28}	spec.containers{of8umbzh}	Normal	Created		(events with common reason combined)
+  13h	4s	3161	{kubelet 10.128.112.28}					Warning	FailedSync	Error syncing pod, skipping: [failed to "StartContainer" for "tpe-db-baas-mgo-local" with RunContainerError: "runContainer: API error (500): No command specified\n"
+, failed to "StartContainer" for "of8umbzh" with CrashLoopBackOff: "Back-off 5m0s restarting failed container=of8umbzh pod=sh-app-of8umbzh-3052010425-2ly71_tyd(26f6e6dd-4f35-11e6-987f-901b0e60defe)"
+]
+  13h	4s	3792	{kubelet 10.128.112.28}	spec.containers{tpe-db-baas-mgo-local}	Warning	Failed	Failed to create docker container with error: API error (500): No command specified
+
+  13h	4s	3792	{kubelet 10.128.112.28}	spec.containers{tpe-db-baas-mgo-local}	Normal	Pulling	pulling image "docker-registry:5000/cloudcode/lua_app:v0.10.0"
+  13h	4s	3626	{kubelet 10.128.112.28}	spec.containers{of8umbzh}		Warning	BackOff	Back-off restarting failed docker container
+  13h	4s	3792	{kubelet 10.128.112.28}	spec.containers{tpe-db-baas-mgo-local}	Normal	Pulled	Successfully pulled image "docker-registry:5000/cloudcode/lua_app:v0.10.0"
