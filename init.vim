@@ -39,6 +39,8 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
+NeoBundle 'airblade/vim-gitgutter'
+
 " You can specify revision/branch/tag.
 " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -57,6 +59,11 @@ NeoBundleCheck
 
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 :inoremap <F5> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
+
+:map <F6> :GitGutterToggle<CR>
+:map <F7> :GitGutterLineHighlightsToggle<CR>
+set updatetime=250
+let g:gitgutter_enabled = 0
 
 let g:airline#extensions#tabline#enabled = 1
 " set laststatus=2
@@ -85,7 +92,7 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 " au FileType go nmap <Leader>rs <Plug>(go-run-split)
 " au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
 
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>ds <Plug>(go-def)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
