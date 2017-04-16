@@ -66,7 +66,6 @@ set nohlsearch
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <Leader>d <Plug>(go-def)
 
 map <C-n> :NERDTreeToggle<CR>
 
