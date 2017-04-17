@@ -15,11 +15,6 @@ if dein#load_state('/home/tony/.local/share/dein')
   call dein#add('/home/tony/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-
-  " You can specify revision/branch/tag.
-  "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
   call dein#add('fatih/molokai')
 
@@ -41,6 +36,12 @@ if dein#load_state('/home/tony/.local/share/dein')
 
   call dein#add('vim-airline/vim-airline-themes')
 
+  call dein#add('AndrewRadev/splitjoin.vim')
+
+  call dein#add('SirVer/ultisnips')
+
+  call dein#add('ctrlpvim/ctrlp.vim')
+
   " Required:
   call dein#end()
   call dein#save_state()
@@ -48,37 +49,61 @@ endif
 
 " Required:
 filetype plugin indent on
-"syntax enable
+syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
 set mouse=a
 
+let mapleader = ","
+
+let g:rehash256 = 1
+let g:molokai_original = 1
 colorscheme molokai
 
-syntax off
 set nohlsearch
 
 au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+set autowrite
 
 map <C-n> :NERDTreeToggle<CR>
 
-nmap <F8> :TagbarToggle<CR>
+":nnoremap <C-p> :bprevious<CR>
 
 nnoremap <F2> :set nonumber!<CR>
-
-:nnoremap <C-p> :bprevious<CR>
 
 :map <F3> :set hlsearch!<CR>
 
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 :inoremap <F5> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
+
+:map <F7> :if exists("g:syntax_on") <Bar>
+	\   syntax off <Bar>
+	\ else <Bar>
+	\   syntax enable <Bar>
+	\ endif <CR>
+
+nmap <F8> :TagbarToggle<CR>
 
 set completeopt+=noinsert
 set completeopt+=noselect
@@ -91,5 +116,5 @@ let g:deoplete#sources#go#package_dot = 1
 set completeopt-=preview
 
 let g:airline#extensions#tabline#enabled = 1
-" set laststatus=2
-" let g:airline_powerline_fonts = 1
+
+let g:go_auto_sameids = 1
