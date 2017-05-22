@@ -1,0 +1,62 @@
+[os]
+$ lsb_release -a
+$ uname -a
+
+[user]
+$ sudo -i
+
+// add super user
+# adduser name 
+# adduser name sudo
+
+// lock and unlock user
+# passwd -l name
+# passwd -u name
+
+[tar]
+$ tar -czf create.tar.gz file1 folder1
+$ tar -xzf extract.tar.gz
+
+[netstat]
+# netstat -ntlp | grep LISTEN
+$ netstat -an | grep -e tcp -e udp | wc -l
+
+[time]
+// set time zone
+$ sudo dpkg-reconfigure tzdata
+
+[vim]
+https://github.com/tpope/vim-pathogen
+minibufexpl  nerdtree  supertab  undotree  vim-sensible
+
+[nic]
+$ ethtool p3p1 | grep -i speed
+$ sudo lshw -class network
+# iftop -P -i em4
+# tcptrack -i em4 port 22
+# iptables -L | more
+# netstat -ntlp | grep LISTEN
+
+[disk]
+$ du -sh *
+$ du -B M --max-depth=1 | sort -g
+# fdisk -l
+# parted /dev/sda 'print'
+
+[git]
+git clone ssh://git@123.51.216.20:2014/home/git/git/questions/
+
+[scp]
+scp -r ./controller-150302/ gigaos@220.228.145.210:/home/gigaos/archive/
+
+[file]
+:%s/"SEARCH"/"REPLACE"/gc
+
+[json]
+ | python -m json.tool
+
+[docker]
+sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+docker rm `docker ps --no-trunc -aq`
+$ docker rm $(docker ps -a -q)
+$ docker rmi -f $(docker images -q)
