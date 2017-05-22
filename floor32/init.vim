@@ -88,11 +88,13 @@ set autowrite
 
 map <C-n> :NERDTreeToggle<CR>
 
-":nnoremap <C-p> :bprevious<CR>
+:nnoremap bn :bprevious<CR>
 
 nnoremap <F2> :set nonumber!<CR>
 
-:map <F3> :set hlsearch!<CR>
+nnoremap <F3> :set rnu!<CR>
+
+:map <F4> :set hlsearch!<CR>
 
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 :inoremap <F5> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
@@ -117,4 +119,9 @@ set completeopt-=preview
 
 let g:airline#extensions#tabline#enabled = 1
 
-let g:go_auto_sameids = 1
+"let g:go_auto_sameids = 1
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<CR>
+
+" inoremap jk <ESC>
