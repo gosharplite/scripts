@@ -1,0 +1,92 @@
+- vim ------------------------------------------------------
+
+% - find ( { [
+# , * - find word under the cursor.
+0 ^ $ g_ f F t T , ;  - Move on current line.
+
+	        {This is a book. It is not a pen.}        	
+
+x , X - delete the character under the cursor and to the left of the cursor, respectively.
+u , ctrl-r - undo and redo.
+
+		This is a book.
+
+w , W - word and extended word
+Zone selection <action>a<object> or <action>i<object>
+
+		---this;is:.:w
+
+Visual selection: v,V,<C-v>
+Block selection 0<C-v><C-d>I-- [ESC]
+
+abc
+bef
+123
+
+Macros : qa do something q, @a, @@
+
+/pattern
+# , * - find word under the cursor.
+
+:set incsearch
+:set hlsearch
+
+% - find matching ( { [
+[{ - back to the {
+
+		{
+			{
+			  foo
+			}
+		  bar
+		}
+
+bn - buffer previous
+C-^ - previous buffer
+
+viwp - past buffer on a word
+
+"cy$
+"cp
+
+^E ^Y ^U ^D ^F ^B
+
+~ change case
+
+J - Join lines
+
+iw is ip i' i" i` i( i[ i{ it
+aw as ap a' a" a` a( a[ a{ at
+
+i:<esc>ggVG:normal.<cr>
+
+:%s/\s\+$//gc
+
+- vim-go ---------------------------------------------------
+
+:GoUpdateBinaries
+,r
+,b
+,c
+yif , yaf
+gS , gJ
+ff <tab> , json <tab> , <C-j> - code template
+:GoMetaLinter - style advises
+:GoAlternate - jump to test file
+gd , ctrl-] , ctrl-t - def movement
+:GoDecls , :GoDeclsDir - similar to F8
+]] , [[ - jump to func
+:GoFiles - list package files
+:GoDeps - list package dependency
+:GoReferrers - find who is calling
+:ccl , :pc , :lcl
+:GoCallees , GoCallers
+:GoRename
+:GoFreevars
+:GoImpl io.ReadWriteCloser
+:GoImpl b *B fmt.Stringer
+,a
+:Ack
+<C-x><C-o> , <tab>
+
+------------------------------------------------------------
