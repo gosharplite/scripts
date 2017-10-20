@@ -41,6 +41,10 @@ if dein#load_state('/home/tony/.local/share/dein')
   call dein#add('SirVer/ultisnips')
 
   call dein#add('ctrlpvim/ctrlp.vim')
+  
+  call dein#add('tpope/vim-fugitive')
+
+  call dein#add('tpope/vim-unimpaired')
 
   " Required:
   call dein#end()
